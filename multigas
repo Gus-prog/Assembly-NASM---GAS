@@ -1,0 +1,32 @@
+	.section .data
+	.globl multimatriz_gas
+	
+;********** parametros	*************
+;	matrizA 	dword [ebp+8]
+;	matrizB 	dword [ebp+12]		;esse estao na high memory
+;	matrizC 	dword [ebp+16]
+; 	tam		dword [ebp+20]
+	
+;	aux	dword	[ebp-4]			;alocar espaço na stack para as variaveis
+;	 i	dword	[ebp-8]			;desse jeito as variaveis sao acessadas deslocando valores negativos   ( esta na low memory)
+;	 j	dword	[ebp-12]
+;	 k	dword	[ebp-16]
+;	 bitINT	dword	4
+	
+	
+multimatriz_gas:
+	pushl %ebp
+	movl %esp,%ebp
+	subl $16,%esp
+	pushl %ebx			;parte inicial, dos push e liberar espaço
+	pushl %ecx
+	pushl %edx
+	pushl %esi
+	pushl %edi
+	
+	
+	movl 8(%ebp),%esi		;matriz A, movido pro esi
+	movl 12(%ebp),%esi		;matriz A, movido pro esi
+	
+	
+	
